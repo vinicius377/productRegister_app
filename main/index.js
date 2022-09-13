@@ -3,6 +3,8 @@ const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const { initEvents } = require("./events/index");
 
+const pagePath = path.join(__dirname, "..", "render", "pages");
+
 const openWindow = () => {
   const win = new BrowserWindow({
     width: 1000,
@@ -15,7 +17,7 @@ const openWindow = () => {
     },
   });
 
-  win.loadFile(path.join(__dirname, "..", "render", "index.html"));
+  win.loadFile(path.join(pagePath, "register", "index.html"));
 };
 
 app.on("window-all-closed", () => app.quit());
